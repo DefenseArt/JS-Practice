@@ -43,13 +43,14 @@ userInput.addEventListener("keydown", (event) => {
         }
         else{
             result.innerText = "오답입니다.";
-
+            
             setTimeout(() => {
                 result.innerText = "";
             }, 500);
 
-            startGame();
-        }
-            
+            setTimeout(() => {
+                startGame();
+            }, 1000);
+        }     
     }
 });
