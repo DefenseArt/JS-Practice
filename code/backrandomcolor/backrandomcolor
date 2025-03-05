@@ -1,9 +1,14 @@
 const backcolor = document.getElementById("backcolor");
+const colorCode = document.getElementById("colorCode");
+
+function getColor() {
+    let color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+
+    document.body.style.backgroundColor = color;
+
+    colorCode.innerText = `배경색: ${color}`;
+}
 
 backcolor.addEventListener("click", () => {
-  const color = ["red", "green", "blue", "yellow"];
-
-  const random = Math.floor(Math.random() * color.length);
-
-  document.body.style.backgroundColor = color[random];
+  getColor();
 });
