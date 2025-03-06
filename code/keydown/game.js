@@ -26,7 +26,7 @@ document.addEventListener("keydown", (event) => {
 
     if (!target.innerText) return;  
 
-    if(event.key === target.innerText) {
+    if(event.key.toUpperCase() === target.innerText) {
         clearTimeout(timer);
         
         scor++;
