@@ -2,6 +2,10 @@ const scissors = document.getElementById("scissors");
 const rock = document.getElementById("rock"); 
 const paper = document.getElementById("paper");
 const text = document.getElementById("text");
+const win = document.getElementById("win");
+const reset = document.getElementById("reset");
+
+let winCount = 0, loseCount = 0, drawCount = 0;
 
 function randomnum() {
     const randomnumber = Math.floor(Math.random() * 3) + 1;
@@ -13,8 +17,12 @@ function randomnum() {
 scissors.addEventListener("click", () => {
     const numbers = randomnum();
 
-    if(numbers === 3) 
+    if(numbers === 3) {
         text.innerText = "승리";
+        winCount++;
+        win.innerText = `승리 : ${winCount}`;
+
+    }     
     else if(numbers === 2)
         text.innerText = "패배";
     else
@@ -25,8 +33,11 @@ scissors.addEventListener("click", () => {
 rock.addEventListener("click", () => {
     const numbers = randomnum();
 
-    if(numbers === 1)
+    if(numbers === 1) {
         text.innerText = "승리";
+        winCount++;
+        win.innerText = `승리 : ${winCount}`;
+      }
     else if(numbers === 3)
         text.innerText = "패배";
     else
@@ -37,10 +48,18 @@ rock.addEventListener("click", () => {
 paper.addEventListener("click", () => {
     const numbers = randomnum();
 
-    if(numbers === 2)
+    if(numbers === 2) {
         text.innerText = "승리";
+        winCount++;
+        win.innerText = `승리 : ${winCount}`;
+      }
     else if(numbers === 1)
         text.innerText = "패배";
     else
         text.innerText = "무승부";
 }); 
+
+reset.addEventListener("click", () => {
+  winCount = 0;
+  win.innerText = `승리 : ${winCount}`;
+})
